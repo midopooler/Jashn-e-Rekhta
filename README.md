@@ -10,9 +10,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 Its recomended if you use unity version 2018.4.5f1 and vuforia version 8.5.8 otherwise be ready to face issues. :p
 
-```
-Give examples
-```
 
 ### Installing
 
@@ -31,7 +28,7 @@ I'm happy to merge any additions in this repository. if addition is a large, sho
 
 ## Authors
 
-* **PULKIT MIDHA** - *Initial work* - [midopooler](https://github.com/midopooler)
+* **PULKIT MIDHA** - *XR developer* - [midopooler](https://github.com/midopooler)
 
 See also the list of [contributors](https://github.com/midopooler/Jashn-e-Rekhta/contributors) who participated in this project.
 
