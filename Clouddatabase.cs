@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 
-public class Mysscriptt : MonoBehaviour , IObjectRecoEventHandler
+public class Clouddatabase : MonoBehaviour , IObjectRecoEventHandler
 {
     private CloudRecoBehaviour mCloudRecoBehaviour;
         private bool mIsScanning = false;
@@ -11,10 +11,10 @@ public class Mysscriptt : MonoBehaviour , IObjectRecoEventHandler
         private string mTargetMetadata = "";
         private IObjectRecoEventHandler _objectRecoEventHandlerImplementation;
 
-        // Use this for initialization 
+        //initialization 
         void Start()
         {
-// register this event handler at the cloud reco behaviour 
+            // registering this event handler at the cloud reco behaviour 
             mCloudRecoBehaviour = GetComponent<CloudRecoBehaviour>();
 
             if (mCloudRecoBehaviour)
@@ -42,7 +42,7 @@ public class Mysscriptt : MonoBehaviour , IObjectRecoEventHandler
             mIsScanning = scanning;
             if (scanning)
             {
-                // clear all known trackables
+                // clearing all known trackables
                 var tracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
                 tracker.GetTargetFinder<ImageTargetFinder>().ClearTrackables(false);
             }
@@ -52,24 +52,23 @@ public class Mysscriptt : MonoBehaviour , IObjectRecoEventHandler
             
             TargetFinder.CloudRecoSearchResult cloudRecoSearchResult = 
                 (TargetFinder.CloudRecoSearchResult)targetSearchResult;
-            // do something with the target metadata
+            // doing the task with the target metadata
             mTargetMetadata = cloudRecoSearchResult.MetaData;
-            // stop the target finder (i.e. stop scanning the cloud)
+            // stopping the target finder (i.e. stop scanning the cloud)
             mCloudRecoBehaviour.CloudRecoEnabled = false;
             if (ImageTargetTemplate) { 
-                // enable the new result with the same ImageTargetBehaviour: 
+                // enabling the new result with the same ImageTargetBehaviour: 
                 ObjectTracker tracker = TrackerManager.Instance.GetTracker<ObjectTracker>(); 
                 tracker.GetTargetFinder<ImageTargetFinder>().EnableTracking(targetSearchResult, ImageTargetTemplate.gameObject); 
             }
         }
         
         void OnGUI() {
-            // Display current 'scanning' status
+            // Displaying current 'scanning' status
             GUI.Box (new Rect(100,100,200,50), mIsScanning ? "Scanning" : "Not scanning");
-            // Display metadata of latest detected cloud-target
+            // Displaying metadata of latest detected cloud-target
             GUI.Box (new Rect(100,200,200,50), "Metadata: " + mTargetMetadata);
-            // If not scanning, show button
-            // so that user can restart cloud scanning
+            // If not scanning, show button, so that user can restart cloud scanning
             if (!mIsScanning) {
                 if (GUI.Button(new Rect(100,300,200,50), "Restart Scanning")) {
                     // Restart TargetFinder
