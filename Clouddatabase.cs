@@ -62,7 +62,6 @@ public class Clouddatabase : MonoBehaviour , IObjectRecoEventHandler
                 tracker.GetTargetFinder<ImageTargetFinder>().EnableTracking(targetSearchResult, ImageTargetTemplate.gameObject); 
             }
         }
-        
         void OnGUI() {
             // Displaying current 'scanning' status
             GUI.Box (new Rect(100,100,200,50), mIsScanning ? "Scanning" : "Not scanning");
@@ -75,10 +74,7 @@ public class Clouddatabase : MonoBehaviour , IObjectRecoEventHandler
                     mCloudRecoBehaviour.CloudRecoEnabled = true;
                 }
             }
-        }
-     
-        	
-        
+        }        
 }
 
 
